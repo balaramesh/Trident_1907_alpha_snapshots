@@ -1,0 +1,19 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: centos-pod-from-snap
+spec:
+  volumes:
+    - name: vol1
+      persistentVolumeClaim:
+       claimName: pvc-from-snap
+  containers:
+    - name: centos
+      image: centos:latest
+      command:
+        - /bin/sh
+        - "-c"
+        - "sleep 60m"
+      volumeMounts:
+        - mountPath: "/mnt/vol1"
+          name: vol1

@@ -1,0 +1,9 @@
+apiVersion: snapshot.storage.k8s.io/v1alpha1
+kind: VolumeSnapshot
+metadata:
+  name: centos-vol1-snapshot
+spec:
+  snapshotClassName: csi-vsc
+  source:
+    name: pvc1
+    kind: PersistentVolumeClaim
